@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PocketMoney - Student Finance Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">P</div>
+
+            <div class="brand-info">
+                <h2>PocketMoney</h2>
+                <span>Student Finance</span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#dashboard" class="nav-link active">
+                <span>⌂</span>
+                <strong>Dashboard</strong>
+            </a>
+
+            <a href="#analytics" class="nav-link">
+                <span>▥</span>
+                <strong>Analytics</strong>
+            </a>
+
+            <a href="#budgets" class="nav-link">
+                <span>◈</span>
+                <strong>Budgets</strong>
+            </a>
+
+            <a href="#goals" class="nav-link">
+                <span>◎</span>
+                <strong>Savings Goals</strong>
+            </a>
+
+            <a href="#transactions" class="nav-link">
+                <span>↕</span>
+                <strong>Transactions</strong>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-tip">
+
+            <div class="tip-icon">✦</div>
+
+            <div>
+                <strong>Smart Money</strong>
+                <p>Track. Save. Grow.</p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                <div class="mobile-logo">P</div>
+                <strong>PocketMoney</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button
+                    class="add-header-button"
+                    id="openTransactionModal"
+                >
+                    <span>+</span>
+                    <strong>Add Transaction</strong>
+                </button>
+
+                <button
+                    class="theme-button"
+                    id="themeToggle"
+                >
+                    ☼
+                </button>
+
+                <button
+                    class="profile-avatar"
+                    id="profileButton"
+                >
+                    S
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <div class="container">
+
+
+            <section id="dashboard" class="section">
+
+                <div class="welcome">
+
+                    <div>
+
+                        <div class="section-label">
+                            STUDENT FINANCE DASHBOARD
+                        </div>
+
+                        <h1>
+                            Welcome back,
+                            <span id="welcomeName">Student</span> 👋
+                        </h1>
+
+                        <p class="welcome-description">
+                            Keep your expenses under control and build better financial habits.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button secondary"
+                        id="editProfileButton"
+                    >
+                        Edit Profile
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="panel profile-panel"
+                    id="profilePanel"
+                >
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <div class="section-label">
+                                PROFILE
+                            </div>
+
+                            <h3>Student Profile</h3>
+
+                            <p>
+                                Personalize your PocketMoney dashboard.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <form
+                        id="profileForm"
+                        class="profile-form"
+                    >
+
+                        <div class="input-group">
+                            <label>Student Name</label>
+
+                            <input
+                                type="text"
+                                id="profileName"
+                                placeholder="Enter your name"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label>Course</label>
+
+                            <input
+                                type="text"
+                                id="profileCourse"
+                                placeholder="B.Tech IT"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label>Semester</label>
+
+                            <input
+                                type="text"
+                                id="profileSemester"
+                                placeholder="8th Semester"
+                            >
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="button primary"
+                        >
+                            Save Profile
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat-card balance-card">
+
+                        <div class="stat-header">
+                            <span>Available Balance</span>
+                            <div class="stat-icon">₹</div>
+                        </div>
+
+                        <h2 id="balance">₹0</h2>
+
+                        <p>Income minus expenses</p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Total Income</span>
+                            <div class="stat-icon income">↑</div>
+                        </div>
+
+                        <h2 id="totalIncome">₹0</h2>
+
+                        <p>Total money received</p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Total Expense</span>
+                            <div class="stat-icon expense">↓</div>
+                        </div>
+
+                        <h2 id="totalExpense">₹0</h2>
+
+                        <p>Total money spent</p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Savings Rate</span>
+                            <div class="stat-icon savings">%</div>
+                        </div>
+
+                        <h2 id="savingsRate">0%</h2>
+
+                        <p>Percentage saved</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section id="budgets" class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <div class="section-label">
+                            BUDGET MANAGEMENT
+                        </div>
+
+                        <h2>Control Your Spending</h2>
+
+                        <p>
+                            Set your own limits and track spending automatically.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button secondary"
+                        id="budgetSettingsButton"
+                    >
+                        Budget Settings
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="panel budget-settings"
+                    id="budgetSettings"
+                >
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <div class="section-label">
+                                CUSTOM LIMITS
+                            </div>
+
+                            <h3>Set Your Budget</h3>
+
+                            <p>
+                                Enter your maximum spending limits.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        id="budgetForm"
+                        class="budget-form"
+                    >
+
+                        <div class="input-group">
+
+                            <label>Daily Limit</label>
+
+                            <div class="money-input">
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="dailyLimit"
+                                    min="0"
+                                    placeholder="500"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Weekly Limit</label>
+
+                            <div class="money-input">
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="weeklyLimit"
+                                    min="0"
+                                    placeholder="3000"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Monthly Limit</label>
+
+                            <div class="money-input">
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="monthlyLimit"
+                                    min="0"
+                                    placeholder="10000"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Yearly Limit</label>
+
+                            <div class="money-input">
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="yearlyLimit"
+                                    min="0"
+                                    placeholder="120000"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="button primary"
+                        >
+                            Save Budgets
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <div class="budget-grid">
+
+                    <div class="budget-card">
+
+                        <div class="budget-top">
+
+                            <div class="budget-icon daily">
+                                D
+                            </div>
+
+                            <span
+                                class="status"
+                                id="dailyStatus"
+                            >
+                                Not Set
+                            </span>
+
+                        </div>
+
+                        <span class="budget-title">
+                            DAILY BUDGET
+                        </span>
+
+                        <h3 id="dailySpent">₹0</h3>
+
+                        <p>
+                            Limit:
+                            <span id="dailyBudget">
+                                Not Set
+                            </span>
+                        </p>
+
+                        <div class="progress">
+                            <div
+                                class="progress-bar"
+                                id="dailyProgress"
+                            ></div>
+                        </div>
+
+                        <div class="budget-footer">
+                            <span>Remaining</span>
+                            <strong id="dailyRemaining">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="budget-card">
+
+                        <div class="budget-top">
+
+                            <div class="budget-icon weekly">
+                                W
+                            </div>
+
+                            <span
+                                class="status"
+                                id="weeklyStatus"
+                            >
+                                Not Set
+                            </span>
+
+                        </div>
+
+                        <span class="budget-title">
+                            WEEKLY BUDGET
+                        </span>
+
+                        <h3 id="weeklySpent">₹0</h3>
+
+                        <p>
+                            Limit:
+                            <span id="weeklyBudget">
+                                Not Set
+                            </span>
+                        </p>
+
+                        <div class="progress">
+                            <div
+                                class="progress-bar"
+                                id="weeklyProgress"
+                            ></div>
+                        </div>
+
+                        <div class="budget-footer">
+                            <span>Remaining</span>
+                            <strong id="weeklyRemaining">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="budget-card">
+
+                        <div class="budget-top">
+
+                            <div class="budget-icon monthly">
+                                M
+                            </div>
+
+                            <span
+                                class="status"
+                                id="monthlyStatus"
+                            >
+                                Not Set
+                            </span>
+
+                        </div>
+
+                        <span class="budget-title">
+                            MONTHLY BUDGET
+                        </span>
+
+                        <h3 id="monthlySpent">₹0</h3>
+
+                        <p>
+                            Limit:
+                            <span id="monthlyBudget">
+                                Not Set
+                            </span>
+                        </p>
+
+                        <div class="progress">
+                            <div
+                                class="progress-bar"
+                                id="monthlyProgress"
+                            ></div>
+                        </div>
+
+                        <div class="budget-footer">
+                            <span>Remaining</span>
+                            <strong id="monthlyRemaining">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="budget-card">
+
+                        <div class="budget-top">
+
+                            <div class="budget-icon yearly">
+                                Y
+                            </div>
+
+                            <span
+                                class="status"
+                                id="yearlyStatus"
+                            >
+                                Not Set
+                            </span>
+
+                        </div>
+
+                        <span class="budget-title">
+                            YEARLY BUDGET
+                        </span>
+
+                        <h3 id="yearlySpent">₹0</h3>
+
+                        <p>
+                            Limit:
+                            <span id="yearlyBudget">
+                                Not Set
+                            </span>
+                        </p>
+
+                        <div class="progress">
+                            <div
+                                class="progress-bar"
+                                id="yearlyProgress"
+                            ></div>
+                        </div>
+
+                        <div class="budget-footer">
+                            <span>Remaining</span>
+                            <strong id="yearlyRemaining">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="two-column">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <div class="section-label">
+                                SMART INSIGHTS
+                            </div>
+
+                            <h3>Financial Assistant</h3>
+
+                            <p>
+                                Helpful insights based on your activity.
+                            </p>
+
+                        </div>
+
+                        <div class="sparkle">
+                            ✦
+                        </div>
+
+                    </div>
+
+                    <div id="insights"></div>
+
+                </div>
+
+
+                <div class="panel health-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <div class="section-label">
+                                QUICK SUMMARY
+                            </div>
+
+                            <h3>Spending Health</h3>
+
+                            <p>
+                                Your current spending behaviour.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-circle">
+
+                        <div>
+                            <strong id="healthScore">
+                                0
+                            </strong>
+
+                            <span>
+                                /100
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <p
+                        class="health-text"
+                        id="healthText"
+                    >
+                        Add transactions and budgets to calculate your spending health.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section id="analytics" class="section">
+
+                <div class="panel analytics-panel">
+
+                    <div class="panel-heading analytics-heading">
+
+                        <div>
+
+                            <div class="section-label">
+                                FINANCIAL ANALYTICS
+                            </div>
+
+                            <h3>Income vs Expenses</h3>
+
+                            <p>
+                                Understand how your money moves over time.
+                            </p>
+
+                        </div>
+
+
+                        <div class="analytics-controls">
+
+                            <div class="legend">
+
+                                <span>
+                                    <i class="income-dot"></i>
+                                    Income
+                                </span>
+
+                                <span>
+                                    <i class="expense-dot"></i>
+                                    Expense
+                                </span>
+
+                            </div>
+
+
+                            <select id="chartPeriod">
+
+                                <option value="weekly">
+                                    Last 7 Days
+                                </option>
+
+                                <option value="monthly">
+                                    Last 6 Months
+                                </option>
+
+                                <option value="yearly">
+                                    Last 5 Years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="chart"
+                        id="chart"
+                    ></div>
+
+                </div>
+
+
+                <div class="analytics-goals-row">
+
+
+                    <div class="panel category-panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+
+                                <div class="section-label">
+                                    SPENDING BREAKDOWN
+                                </div>
+
+                                <h3>Category Analysis</h3>
+
+                                <p>
+                                    See where most of your money is going.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="categories"
+                            id="categories"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        class="panel savings-panel"
+                        id="goals"
+                    >
+
+                        <div class="panel-heading">
+
+                            <div>
+
+                                <div class="section-label">
+                                    SAVINGS GOALS
+                                </div>
+
+                                <h3>Build Your Future</h3>
+
+                                <p>
+                                    Create goals and track your progress.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <form
+                            id="goalForm"
+                            class="goal-form"
+                        >
+
+                            <input
+                                type="text"
+                                id="goalName"
+                                placeholder="Goal name"
+                                required
+                            >
+
+                            <input
+                                type="number"
+                                id="goalTarget"
+                                placeholder="Target amount"
+                                min="1"
+                                required
+                            >
+
+                            <input
+                                type="number"
+                                id="goalSaved"
+                                placeholder="Already saved"
+                                min="0"
+                                value="0"
+                                required
+                            >
+
+                            <button
+                                type="submit"
+                                class="button primary"
+                            >
+                                Add Goal
+                            </button>
+
+                        </form>
+
+
+                        <div
+                            class="goals"
+                            id="goalsList"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="transactions"
+                class="section"
+            >
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <div class="section-label">
+                                TRANSACTION HISTORY
+                            </div>
+
+                            <h3>Recent Transactions</h3>
+
+                            <p>
+                                Manage your income and expenses.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="filters">
+
+                        <div class="search">
+
+                            <span>⌕</span>
+
+                            <input
+                                type="text"
+                                id="transactionSearch"
+                                placeholder="Search transactions..."
+                            >
+
+                        </div>
+
+
+                        <select id="transactionType">
+
+                            <option value="all">
+                                All Types
+                            </option>
+
+                            <option value="income">
+                                Income
+                            </option>
+
+                            <option value="expense">
+                                Expense
+                            </option>
+
+                        </select>
+
+
+                        <select id="transactionCategory">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Food">Food</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Education">Education</option>
+                            <option value="Recharge">Recharge</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Bills">Bills</option>
+                            <option value="Salary">Salary</option>
+                            <option value="Pocket Money">
+                                Pocket Money
+                            </option>
+                            <option value="Other">Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        class="transaction-list"
+                        id="transactionList"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <footer>
+                PocketMoney © 2026 · Smart Finance for Students
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<div
+    class="modal-overlay"
+    id="transactionModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="section-label">
+                    MONEY MANAGEMENT
+                </div>
+
+                <h2 id="transactionModalTitle">
+                    Add Transaction
+                </h2>
+
+                <p>
+                    Record your income or expense.
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                id="closeTransactionModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            id="transactionForm"
+            class="transaction-form"
+        >
+
+            <div class="input-group full">
+
+                <label>
+                    Description
+                </label>
+
+                <input
+                    type="text"
+                    id="transactionDescription"
+                    placeholder="e.g. Lunch at college"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="transactionAmount"
+                    placeholder="500"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Type
+                </label>
+
+                <select id="transactionFormType">
+
+                    <option value="expense">
+                        Expense
+                    </option>
+
+                    <option value="income">
+                        Income
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Category
+                </label>
+
+                <select id="transactionFormCategory">
+
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Education">Education</option>
+                    <option value="Recharge">Recharge</option>
+                    <option value="Entertainment">
+                        Entertainment
+                    </option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Pocket Money">
+                        Pocket Money
+                    </option>
+                    <option value="Other">Other</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="transactionDate"
+                    required
+                >
+
+            </div>
+
+
+            <div class="modal-buttons">
+
+                <button
+                    type="button"
+                    class="button secondary"
+                    id="cancelTransaction"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="button primary"
+                    id="transactionSubmit"
+                >
+                    Add Transaction
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
